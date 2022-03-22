@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+        <meta charset="UTF-8">
+        <title>GA Courses</title>
+    </head>
+    <body>
+        <p>The list of courses provided by the GA program</p>
+        <div>
+            {% if courses %}
+            <ul>
+                {% for course in courses %}
+                    <h1>{{ course.title }}</h1>
+                    <h3>Starting Date: {{ course.start }}</h3>
+                    <p>{{ course.description }}</p>
+                {% endfor %}
+            </ul>
+            {% else %}
+                <strong>No courses</strong>
+            {% endif %}
+        </div>
+    </body>
+</html>
